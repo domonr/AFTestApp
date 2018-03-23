@@ -8,6 +8,26 @@
 
 import Foundation
 
-struct User {
+struct User: Codable {
     
+    var name: String
+    var imageURL: String
+    var url: String
+    var type: Type
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "login"
+        case imageURL = "avatar_url"
+        case url = "html_url"
+        case type
+    }
+}
+
+// MARK: - Enum
+extension User {
+    
+    enum `Type`: String, Codable {
+        case user = "User"
+        case org = "Organization"
+    }
 }
