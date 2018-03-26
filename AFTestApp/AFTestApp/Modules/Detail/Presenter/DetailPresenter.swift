@@ -9,5 +9,5 @@
 import Foundation
 
 final class DetailPresenter {
-    
+    // 使ってないけどそのうち使うかもなので一旦置いておくよ
 }
