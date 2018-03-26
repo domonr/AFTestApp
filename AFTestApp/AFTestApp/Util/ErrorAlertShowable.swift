@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-protocol ErrorAlertShowable {}
+protocol ErrorAlertShowable {
+    func showErrorAlert(error: Error, okAction: ((UIAlertAction) -> Void)?)
+}
 
 extension ErrorAlertShowable where Self: UIViewController {
     

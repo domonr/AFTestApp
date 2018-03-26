@@ -8,11 +8,12 @@
 
 import UIKit
 
-protocol TopViewControllerProtocol: class {
+protocol TopViewControllerProtocol: class, ErrorAlertShowable {
     func updateTableView()
+    func pushVC(vc: UIViewController)
 }
 
-final class TopViewController: UIViewController, ErrorAlertShowable {
+final class TopViewController: UIViewController {
     
     // MARK: IB
     
@@ -30,7 +31,7 @@ final class TopViewController: UIViewController, ErrorAlertShowable {
         super.viewDidLoad()
         
         self.presenter.registerCell(for: self.tableView)
-        self.presenter.getUsers(searchWord: "")
+        self.presenter.getUsers(searchWord: "AndFactory")
     }
 }
 
@@ -39,6 +40,10 @@ extension TopViewController: TopViewControllerProtocol {
     
     func updateTableView() {
         self.tableView.reloadData()
+    }
+    
+    func pushVC(vc: UIViewController) {
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -54,8 +59,7 @@ extension TopViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = UIStoryboard(name: "DetailViewController", bundle: nil).instantiateInitialViewController() as! DetailViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.presenter.didSelectRowAt(indexPath: indexPath)
     }
 }
 

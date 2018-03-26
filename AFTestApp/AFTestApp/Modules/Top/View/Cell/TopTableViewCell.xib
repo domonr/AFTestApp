@@ -23,7 +23,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1TO-mY-6IP">
                         <rect key="frame" x="16" y="11" width="95" height="95"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="95" id="Gfj-bl-GfU"/>
+                            <constraint firstAttribute="height" priority="750" constant="95" id="Gfj-bl-GfU"/>
                             <constraint firstAttribute="width" secondItem="1TO-mY-6IP" secondAttribute="height" multiplier="1:1" id="PfN-3S-wgW"/>
                         </constraints>
                     </imageView>

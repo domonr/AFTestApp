@@ -52,4 +52,14 @@ extension TopPresenter {
         
         return cell
     }
+    
+    func didSelectRowAt(indexPath: IndexPath) {
+        guard let user = self.users?.items[indexPath.row] else {
+            self.vc?.showErrorAlert(error: AppError.noData, okAction: nil)
+            return
+        }
+        let vc = UIStoryboard(name: "DetailViewController", bundle: nil).instantiateInitialViewController() as! DetailViewController
+        vc.urlString = user.url
+        self.vc.pushVC(vc: vc)
+    }
 }
