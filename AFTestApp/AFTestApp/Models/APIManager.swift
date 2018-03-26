@@ -12,17 +12,19 @@ struct APIManager {
     
     static func get(url: URL, success: @escaping (Data) -> Void, fail: @escaping (Error) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
-            if let error = error {
-                fail(error)
-                return
+            DispatchQueue.main.async {
+                if let error = error {
+                    fail(error)
+                    return
+                }
+                
+                guard let data = data else {
+                    fail(AppError.noData)
+                    return
+                }
+                
+                success(data)
             }
-            
-            guard let data = data else {
-                fail(AppError.noData)
-                return
-            }
-
-            success(data)
         }
         
         defer {
