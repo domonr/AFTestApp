@@ -11,6 +11,7 @@ import Foundation
 enum AppError: Error {
     case noData
     case failDecode
+    case urlException
 }
 
 extension AppError: LocalizedError {
@@ -21,6 +22,8 @@ extension AppError: LocalizedError {
             return "サーバからデータが返ってきません。GitHubのAPIが動作しているか確認して下さい！"
         case .failDecode:
             return "デコードに失敗しました"
+        case .urlException:
+            return "不正なURLです。URLを確認してください。"
         }
     }
 }
