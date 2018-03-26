@@ -20,6 +20,10 @@
 		25EB30542064E2C100BFC0FA /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EB30532064E2C100BFC0FA /* APIManager.swift */; };
 		25EB30562064E39B00BFC0FA /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EB30552064E39B00BFC0FA /* Error.swift */; };
 		25F1E9F92064F16400949BBB /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F1E9F82064F16400949BBB /* Users.swift */; };
+		25F1E9FC2064F90E00949BBB /* ErrorAlertShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F1E9FB2064F90E00949BBB /* ErrorAlertShowable.swift */; };
+		25F1E9FF206889BD00949BBB /* TopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F1E9FE206889BD00949BBB /* TopTableViewCell.swift */; };
+		25F1EA01206889C200949BBB /* TopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25F1EA00206889C200949BBB /* TopTableViewCell.xib */; };
+		25F1EA0420688DD400949BBB /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F1EA0320688DD400949BBB /* UIImageView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		25EB30532064E2C100BFC0FA /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		25EB30552064E39B00BFC0FA /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		25F1E9F82064F16400949BBB /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		25F1E9FB2064F90E00949BBB /* ErrorAlertShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertShowable.swift; sourceTree = "<group>"; };
+		25F1E9FE206889BD00949BBB /* TopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTableViewCell.swift; sourceTree = "<group>"; };
+		25F1EA00206889C200949BBB /* TopTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopTableViewCell.xib; sourceTree = "<group>"; };
+		25F1EA0320688DD400949BBB /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,8 @@
 		25EB301F2064DE2D00BFC0FA /* AFTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				25F1EA0220688DC600949BBB /* Extension */,
+				25F1E9FA2064F8E400949BBB /* Util */,
 				25EB304F2064E0EB00BFC0FA /* Models */,
 				25EB30392064DF2000BFC0FA /* Application */,
 				25EB30372064DEEE00BFC0FA /* Modules */,
@@ -90,6 +100,7 @@
 		25EB30342064DEA400BFC0FA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				25F1E9FD206889A700949BBB /* Cell */,
 				25EB30242064DE2D00BFC0FA /* TopViewController.storyboard */,
 				25EB30222064DE2D00BFC0FA /* TopViewController.swift */,
 			);
@@ -168,6 +179,31 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		25F1E9FA2064F8E400949BBB /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				25F1E9FB2064F90E00949BBB /* ErrorAlertShowable.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		25F1E9FD206889A700949BBB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				25F1E9FE206889BD00949BBB /* TopTableViewCell.swift */,
+				25F1EA00206889C200949BBB /* TopTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		25F1EA0220688DC600949BBB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				25F1EA0320688DD400949BBB /* UIImageView+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -229,6 +265,7 @@
 			files = (
 				25EB30492064E0A100BFC0FA /* DetailViewController.storyboard in Resources */,
 				25EB302B2064DE2D00BFC0FA /* LaunchScreen.storyboard in Resources */,
+				25F1EA01206889C200949BBB /* TopTableViewCell.xib in Resources */,
 				25EB30282064DE2D00BFC0FA /* Assets.xcassets in Resources */,
 				25EB30262064DE2D00BFC0FA /* TopViewController.storyboard in Resources */,
 			);
@@ -241,12 +278,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25F1EA0420688DD400949BBB /* UIImageView+.swift in Sources */,
 				25EB30562064E39B00BFC0FA /* Error.swift in Sources */,
 				25F1E9F92064F16400949BBB /* Users.swift in Sources */,
 				25EB304E2064E0AA00BFC0FA /* TopPresenter.swift in Sources */,
 				25EB30232064DE2D00BFC0FA /* TopViewController.swift in Sources */,
 				25EB30212064DE2D00BFC0FA /* AppDelegate.swift in Sources */,
+				25F1E9FF206889BD00949BBB /* TopTableViewCell.swift in Sources */,
 				25EB304A2064E0A100BFC0FA /* DetailViewController.swift in Sources */,
+				25F1E9FC2064F90E00949BBB /* ErrorAlertShowable.swift in Sources */,
 				25EB30482064E0A100BFC0FA /* DetailPresenter.swift in Sources */,
 				25EB30512064E0EB00BFC0FA /* User.swift in Sources */,
 				25EB30542064E2C100BFC0FA /* APIManager.swift in Sources */,

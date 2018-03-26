@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ajx-FR-SHV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -17,12 +17,70 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eCs-hv-a0M">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="TSS-7g-GRm"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="9Mu-kO-ytd"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="diA-8X-Noh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="DUy-vZ-df9"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eCs-hv-a0M" secondAttribute="trailing" id="62q-HG-xNX"/>
+                            <constraint firstItem="diA-8X-Noh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="F5u-2F-cfk"/>
+                            <constraint firstItem="eCs-hv-a0M" firstAttribute="top" secondItem="diA-8X-Noh" secondAttribute="bottom" id="PZX-4j-Lb3"/>
+                            <constraint firstItem="eCs-hv-a0M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dmM-oM-Ax3"/>
+                            <constraint firstItem="diA-8X-Noh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dvX-u7-LAe"/>
+                            <constraint firstItem="diA-8X-Noh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="edL-y7-YDb"/>
+                            <constraint firstAttribute="bottom" secondItem="eCs-hv-a0M" secondAttribute="bottom" id="oir-wh-5Eb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="zJ3-PZ-SuJ"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="wXI-Cu-0oy" id="zSW-cg-gBD"/>
+                        <outlet property="tableView" destination="eCs-hv-a0M" id="BGO-ln-Ubw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="wXI-Cu-0oy">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="xf3-da-urp"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="JTS-B7-kqp"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="xBd-31-Vfv"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="YOe-0s-Jd7"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
+            <point key="canvasLocation" x="372" y="33.733133433283363"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xjv-IR-Ynu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ajx-FR-SHV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Z6g-Me-HH5">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5rT-lA-ZTM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OJb-93-aPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-505" y="34"/>
         </scene>
     </scenes>
 </document>

@@ -8,7 +8,61 @@
 
 import UIKit
 
-final class TopViewController: UIViewController {
-    
+protocol TopViewControllerProtocol: class {
+    func updateTableView()
 }
 
+final class TopViewController: UIViewController, ErrorAlertShowable {
+    
+    // MARK: IB
+    
+    @IBOutlet private weak var tableView: UITableView!
+    
+    // MARK: Parameter
+    
+    private lazy var presenter: TopPresenter = {
+        return TopPresenter(vc: self)
+    }()
+    
+    // MARK: LifeCycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.presenter.registerCell(for: self.tableView)
+        self.presenter.getUsers(searchWord: "")
+    }
+}
+
+// MARK: - API
+extension TopViewController: TopViewControllerProtocol {
+    
+    func updateTableView() {
+        self.tableView.reloadData()
+    }
+}
+
+// MARK: - TableView
+extension TopViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.presenter.numberOfRowsInSection()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return self.presenter.cellForRowAt(indexPath: indexPath, for: tableView)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: "DetailViewController", bundle: nil).instantiateInitialViewController() as! DetailViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+// MARK: - SearchBar
+extension TopViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.presenter.getUsers(searchWord: searchBar.text ?? "AndFactory")
+    }
+}
